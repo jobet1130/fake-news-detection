@@ -66,3 +66,6 @@ configs/*.secret.yaml
 
 # ✅ Keep raw data, ignore processed/interim/external
 data/
+
+# Ignore requirements files
+requirements.txt
