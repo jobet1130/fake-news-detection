@@ -1,0 +1,71 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs and debug files
+*.log
+logs/
+
+# Python packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python tool settings
+pytest_cache/
+.pytest_cache/
+
+# Streamlit
+.streamlit/
+
+# Model artifacts
+models/
+*.pkl
+*.joblib
+*.npz
+
+# Reports
+reports/*.png
+reports/*.txt
+reports/*.xlsx
+
+# Config files
+*.env
+.env.*
+configs/*.secret.yaml
+
+# ✅ Keep raw data, ignore processed/interim/external
+data/interim/
+data/processed/
+data/external/
+!data/raw/
