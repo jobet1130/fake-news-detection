@@ -65,7 +65,4 @@ reports/*.xlsx
 configs/*.secret.yaml
 
 # ✅ Keep raw data, ignore processed/interim/external
-data/interim/
-data/processed/
-data/external/
-!data/raw/
+data/
