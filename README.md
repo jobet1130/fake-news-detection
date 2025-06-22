@@ -18,16 +18,15 @@ A full-stack machine learning project that classifies news articles as **real** 
 
 ## 🧱 Architecture Overview
 
-```mermaid
-graph TD;
-    A[Raw Data (Kaggle)] --> B[Preprocessing (Cleaning, Tokenizing)];
-    B --> C[Feature Engineering (TF-IDF / Embeddings)];
-    C --> D[Model Training (LogReg / XGBoost / BERT)];
-    D --> E[Evaluation (Metrics, Reports)];
-    D --> F[App Interface (Streamlit)];
-```
+| Step                          | Description                           |
+|-------------------------------|----------------------------------------|
+| Raw Data (Kaggle)             | Downloaded dataset                    |
+| Preprocessing                 | Cleaning, tokenizing, normalization   |
+| Feature Engineering           | TF-IDF, Word2Vec, BERT embeddings     |
+| Model Training                | LogReg, XGBoost, BERT fine-tuning     |
+| Evaluation                    | Confusion Matrix, Accuracy, F1-Score  |
+| App Interface                 | Streamlit app for live prediction     |
 
----
 
 ## 🗃️ Folder Structure
 
