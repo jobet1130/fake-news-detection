@@ -30,7 +30,8 @@ jobs:
 
       - name: 📦 Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m ensurepip --upgrade
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: 🧼 Run flake8 (linting)
@@ -53,12 +54,14 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install test dependencies
         run: |
+          python -m ensurepip --upgrade
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
 
-      - name: 🧪 Run Tests with Pytest
+      - name: 🧪 Run unit tests
         run: |
           pytest tests/ --disable-warnings --maxfail=3 --tb=short
 
@@ -76,11 +79,13 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install training dependencies
         run: |
+          python -m ensurepip --upgrade
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🧠 Train the model
+      - name: 🧠 Train ML model
         run: |
           python scripts/train.py --config configs/train_config.yaml
 
