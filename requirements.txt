@@ -1,0 +1,22 @@
+# Core Data Science Libraries
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.0
+
+# NLP & Text Preprocessing
+nltk==3.8.1
+spacy==3.7.3
+
+# Machine Learning Models
+xgboost==2.0.3
+
+# Deep Learning with Transformers
+transformers==4.41.2
+torch==2.3.0
+
+# Web Application
+streamlit==1.35.0
+
+# Utilities
+PyYAML==6.0.1
+tqdm==4.66.4
