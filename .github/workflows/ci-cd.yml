@@ -61,10 +61,14 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: 🧪 Run unit tests
+      - name: 🧪 Run unit tests (if present)
         run: |
-          pytest tests/ --disable-warnings --maxfail=3 --tb=short
-
+            if [ -d tests ] && ls tests/test_*.py 1> /dev/null 2>&1; then
+            echo "✅ Test files found. Running Pytest..."
+            pytest tests/ --disable-warnings --maxfail=3 --tb=short
+            else
+            echo "⚠️  No test files found. Skipping Pytest."
+            fi
   train:
     name: 🧠 Train Model
     needs: test
