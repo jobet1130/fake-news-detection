@@ -1,0 +1,29 @@
+model:
+  name: logistic_regression
+  type: sklearn.linear_model.LogisticRegression
+  params:
+    C: 1.0
+    solver: liblinear
+    max_iter: 100
+    random_state: 42
+
+data:
+  test_size: 0.2
+  random_state: 42
+  max_features: 5000
+  tfidf:
+    stop_words: english
+    ngram_range: [1, 2]
+    lowercase: true
+
+training:
+  use_grid_search: true
+  grid_search_params:
+    C: [0.01, 0.1, 1.0, 10.0, 100.0]
+    solver: [liblinear, saga]
+  cv_folds: 5
+  scoring: f1
+
+output:
+  model_path: ../models/logreg_model.pkl
+  report_path: ../reports/logreg_report.json

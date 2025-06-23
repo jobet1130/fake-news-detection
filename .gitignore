@@ -48,12 +48,6 @@ pytest_cache/
 # Streamlit
 .streamlit/
 
-# Model artifacts
-models/
-*.pkl
-*.joblib
-*.npz
-
 # Reports
 reports/*.png
 reports/*.txt
@@ -66,3 +60,6 @@ configs/*.secret.yaml
 
 # ✅ Keep raw data, ignore processed/interim/external
 data/
+
+# Exclude MLRuns directory
+mlruns/
