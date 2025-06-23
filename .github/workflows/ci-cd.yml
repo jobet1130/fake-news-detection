@@ -63,12 +63,13 @@ jobs:
 
       - name: 🧪 Run unit tests (if present)
         run: |
-            if [ -d tests ] && ls tests/test_*.py 1> /dev/null 2>&1; then
+          if [ -d tests ] && ls tests/test_*.py 1> /dev/null 2>&1; then
             echo "✅ Test files found. Running Pytest..."
             pytest tests/ --disable-warnings --maxfail=3 --tb=short
-            else
+          else
             echo "⚠️  No test files found. Skipping Pytest."
-            fi
+          fi
+
   train:
     name: 🧠 Train Model
     needs: test
@@ -93,7 +94,17 @@ jobs:
         run: |
           python scripts/train.py --config configs/train_config.yaml
 
+      - name: 📦 Check and Upload model artifact (if exists)
+        if: ${{ always() }}
+        run: |
+          if [ -d "models" ] && [ "$(ls -A models)" ]; then
+            echo "✅ Model files found. Ready to upload."
+          else
+            echo "⚠️ No model files found. Skipping upload."
+          fi
+
       - name: 📦 Upload model artifact
+        if: ${{ success() }}
         uses: actions/upload-artifact@v3
         with:
           name: fake-news-model
