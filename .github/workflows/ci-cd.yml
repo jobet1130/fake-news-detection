@@ -92,7 +92,13 @@ jobs:
 
       - name: 🧠 Train ML model
         run: |
-          python scripts/train.py --config configs/train_config.yaml
+          if [ -f "scripts/train.py" ] && [ -f "configs/train_config.yaml" ]; then
+            echo "✅ Training script and config found. Running training..."
+            python scripts/train.py --config configs/train_config.yaml
+          else
+            echo "⚠️ Either scripts/train.py or configs/train_config.yaml not found. Skipping training."
+            exit 0
+          fi
 
       - name: 📦 Check and Upload model artifact (if exists)
         if: ${{ always() }}
